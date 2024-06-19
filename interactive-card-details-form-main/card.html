@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card interface</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+    <style>
+        .custom-shadow-3xl {
+            box-shadow: 20px 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+        .font-space {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-slate-200 flex justify-between items-center h-full ">
+    <div class="">
+        <img src="images/bg-main-desktop.png" alt="" class="absolute h-full w-1/3">
+        <div class="relative pt-28 pl-36">
+            <img src="images/bg-card-front.png" alt="" class="w-96 h-48 shadow-2xl">
+            <img src="images/bg-card-back.png" alt="" class="w-96 mt-10 ml-16 h-48 shadow-2xl">
+        </div>
+        
+    </div>
+    <div class="payment-form p-6 font-space w-1/3 mr-40 mt-32">
+        <label for="cardholder-name" class="block mb-2 font-bold text-sm">CARDHOLDER NAME</label>
+        <input type="text" id="cardholder-name" placeholder="e.g. Jane Appleseed" class="w-full p-2 mb-4 border border-gray-300 rounded">
+        
+        <label for="card-number" class="block mb-2 font-bold text-sm">CARD NUMBER</label>
+        <input type="text" id="card-number" placeholder="e.g. 1234 5678 9123 0000" class="w-full p-2 mb-4 border border-gray-300 rounded">
+        
+        <div class="expiry-cvc flex justify-between">
+            <div>
+                <label for="exp-month" class="block mb-2 font-bold text-sm">EXP. DATE (MM/YY)</label>
+                <input type="text" id="exp-month" placeholder="MM" class="w-1/2 p-2 mb-4 border border-gray-300 rounded">
+            </div>
+            <div>
+                <input type="text" id="exp-year" placeholder="YY" class="w-1/2 p-2 mb-4 border border-gray-300 rounded mt-6">
+            </div>
+            <div>
+                <label for="cvc" class="block mb-2 font-bold text-sm">CVC</label>
+                <input type="text" id="cvc" placeholder="e.g. 123" class="w-full p-2 mb-4 border border-gray-300 rounded">
+        
+            </div>
+        </div>
+        
+        
+        <button type="button" class="w-full p-2 bg-purple-900 text-white rounded text-lg hover:bg-purple-700">Confirm</button>
+    </div>
+</body>
+</html>
