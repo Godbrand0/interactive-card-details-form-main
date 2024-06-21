@@ -39,7 +39,10 @@
           <div class="absolute lg:p-6 text-white p-3">
             <img src="images/card-logo.svg" alt="" class="w-14" />
 
-            <p class="text-center lg:tracking-widest my-10 lg:my-6 text-2xl">
+            <p
+              class="text-center lg:tracking-widest my-10 lg:my-6 text-2xl"
+              id="number"
+            >
               0000 0000 0000 0000
             </p>
             <div class="flex justify-between">
@@ -76,22 +79,26 @@
         placeholder="e.g. Jane Appleseed"
         class="w-full p-2 mb-4 border border-gray-300 rounded outline-violet-800"
       />
-
-      <label for="card-number" class="block mb-2 font-bold text-sm"
-        >CARD NUMBER</label
-      >
-      <input
-        type="text"
-        id="card-number"
-        minlength="16"
-        maxlength="16"
-        placeholder="e.g. 1234 5678 9123 0000"
-        class="w-full p-2 mb-4 border border-gray-300 rounded-md outline-violet-800"
-      />
+      <div class="mb-4">
+        <label for="card-number" class="block mb-2 font-bold text-sm"
+          >CARD NUMBER</label
+        >
+        <input
+          type="text"
+          id="card-number"
+          minlength="16"
+          maxlength="16"
+          placeholder="e.g. 1234 5678 9123 0000"
+          class="w-full p-2 border border-gray-300 rounded-md outline-violet-800"
+        />
+        <p class="text-sm text-red-600 hidden" id="number-err">
+          Wrong format, numbers only
+        </p>
+      </div>
 
       <div class="expiry-cvc flex justify-between">
         <div class="flex gap-2">
-          <div>
+          <div class="mb-4">
             <label for="exp-month" class="block mb-2 font-bold text-sm"
               >EXP. DATE</label
             >
@@ -101,10 +108,13 @@
               minlength="1"
               max="31"
               placeholder="MM"
-              class="w-20 p-2 mb-4 border border-gray-300 rounded-md outline-violet-800"
+              class="w-20 p-2 border border-gray-300 rounded-md outline-violet-800"
             />
+            <p class="text-sm text-red-600 hidden" id="year-err">
+              Can't be blank
+            </p>
           </div>
-          <div>
+          <div class="mb-4">
             <label for="exp-month" class="block mb-2 font-bold text-sm">
               (MM/YY)</label
             >
@@ -114,24 +124,26 @@
               placeholder="YY"
               minlength="1"
               max="12"
-              class="w-20 p-2 mb-4 border border-gray-300 rounded-md outline-violet-800"
+              class="w-20 p-2 border border-gray-300 rounded-md outline-violet-800"
             />
           </div>
         </div>
 
-        <div>
+        <div class="mb-4">
           <label for="cvc" class="block mb-2 font-bold text-sm">CVC</label>
           <input
             type="text"
             id="cvc"
             placeholder="e.g. 123"
-            class="lg:w-52 w-40 p-2 mb-4 border border-gray-300 rounded-md outline-violet-800"
+            class="lg:w-52 w-40 p-2 border border-gray-300 rounded-md outline-violet-800"
           />
+          <p class="text-sm text-red-600 hidden" id="cvc-err">Can't be blank</p>
         </div>
       </div>
 
       <button
-        type="button"
+        type="submit"
+        id="button"
         class="w-full p-2 bg-violet-950 text-white rounded-md text-lg hover:bg-purple-700 mt-10 duration-100"
       >
         Confirm
@@ -139,7 +151,7 @@
     </div>
 
     <div
-      class="w-80 mr-52 mt-20 hidden flex flex-col gap-5 text-center justify-center items-center"
+      class="w-80 lg:mr-52 ml-12 lg:mt-20 mt-48 hidden flex-col gap-5 text-center justify-center items-center"
     >
       <img src="images/icon-complete.svg" alt="" class="w-16 text-center" />
       <p class="font-bold tracking-widest text-2xl">THANK YOU!</p>
