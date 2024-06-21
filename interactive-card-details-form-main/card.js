@@ -7,11 +7,15 @@ const cardName = document.querySelector("#cardholder-name");
 const cardNumber = document.querySelector("#card-number");
 const expMonth = document.querySelector("#exp-month");
 const expYear = document.querySelector("#exp-year");
+const cvc = document.querySelector("#cvc");
 
 const numberErr = document.querySelector("#number-err");
 const yearErr = document.querySelector("#year-err");
 const cvcErr = document.querySelector("#cvc-err");
 const button = document.querySelector("#button");
+const tank = document.querySelector("#tank");
+const infoPage = document.querySelector("#info-page");
+const Continue = document.querySelector("#continue");
 
 function changeName() {
   if (cardName.value != "") {
@@ -27,12 +31,7 @@ function changeName() {
 const alphabet = new RegExp("[a-zA-Z]");
 
 function formatCardNumber(value) {
-  // Remove any non-digit characters
-  const cleanedValue = value.replace(/\D/g, "");
-
-  // Add a space every 4 digits
-  const formattedValue = cleanedValue.replace(/(.{4})/g, "$1 ");
-
+  const formattedValue = value.replace(/(.{4})/g, "$1 ");
   return formattedValue.trim();
 }
 function changeNumber() {
@@ -97,6 +96,25 @@ function changeCvc() {
   }
 }
 
+function tankPage() {
+  if (
+    NAME.innerHTML === cardName.value &&
+    YY.innerHTML === expYear.value &&
+    MM.innerHTML === expMonth.value &&
+    number.innerHTML === cardNumber.value
+  ) {
+    tank.classList.remove("hidden");
+    tank.classList.add("flex");
+    infoPage.classList.remove("static");
+    infoPage.classList.add("hidden");
+  } else {
+    tank.classList.add("hidden");
+    tank.classList.remove("flex");
+    infoPage.classList.remove("hidden");
+    infoPage.classList.add("static");
+  }
+}
+
 button.addEventListener("click", (event) => {
   event.preventDefault();
   changeCvc();
@@ -104,4 +122,12 @@ button.addEventListener("click", (event) => {
   changeMonth();
   changeName();
   changeNumber();
+  tankPage();
+});
+
+Continue.addEventListener("click", () => {
+  tank.classList.add("hidden");
+  tank.classList.remove("flex");
+  infoPage.classList.remove("hidden");
+  infoPage.classList.add("static");
 });
