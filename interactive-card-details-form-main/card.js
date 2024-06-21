@@ -26,8 +26,23 @@ function changeName() {
 
 const alphabet = new RegExp("[a-zA-Z]");
 
+function formatCardNumber(value) {
+  // Remove any non-digit characters
+  const cleanedValue = value.replace(/\D/g, "");
+
+  // Add a space every 4 digits
+  const formattedValue = cleanedValue.replace(/(.{4})/g, "$1 ");
+
+  return formattedValue.trim();
+}
 function changeNumber() {
-  if (cardNumber.value != "" && !alphabet.test(cardNumber.value)) {
+  const formattedNumber = formatCardNumber(cardNumber.value);
+  cardNumber.value = formattedNumber;
+
+  if (
+    formattedNumber.replace(/\s/g, "") !== "" &&
+    !alphabet.test(cardNumber.value)
+  ) {
     number.innerHTML = cardNumber.value;
     cardNumber.classList.remove("outline-red-800");
     cardNumber.classList.add("outline-violet-800");
@@ -82,7 +97,7 @@ function changeCvc() {
   }
 }
 
-button.addEventListener("submit", (event) => {
+button.addEventListener("click", (event) => {
   event.preventDefault();
   changeCvc();
   changeYear();
